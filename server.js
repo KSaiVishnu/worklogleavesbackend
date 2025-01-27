@@ -104,6 +104,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     res.download(outputFilePath, "FilteredUsers.xlsx", () => {
       fs.unlinkSync(outputFilePath);
     });
+    res.send(filteredUsers);
   } catch (err) {
     console.error(err);
     res.status(500).send("Error processing file.");
