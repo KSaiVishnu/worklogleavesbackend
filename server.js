@@ -69,7 +69,8 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     });
 
     const userDayLogs = calculateTotalTime(timelog);
-    // console.log(leaveLookup);
+    console.log(userDayLogs);
+    console.log(leaveLookup);
 
     const filteredUsers = [];
     userDayLogs.forEach((entry) => {
@@ -88,6 +89,8 @@ app.post("/upload", upload.single("file"), async (req, res) => {
       }
       
     });
+
+    console.log(filteredUsers);
 
     const outputSheet = XLSX.utils.json_to_sheet(filteredUsers);
     const outputWorkbook = XLSX.utils.book_new();
